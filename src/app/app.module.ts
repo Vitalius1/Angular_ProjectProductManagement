@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { ProductService } from './product/product.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
-import { NewProductComponent } from './new-product/new-product.component'; // <-- Import ProductService
+import { NewProductComponent } from './new-product/new-product.component';
+import { HomeComponent } from './home/home.component'; // <-- Import ProductService
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     EditProductComponent,
-    NewProductComponent
+    NewProductComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
