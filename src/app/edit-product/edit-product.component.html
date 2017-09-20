@@ -1,3 +1,29 @@
-<p>
-  edit-product works!
-</p>
+<div id="form">
+    <h1>Edit Product</h1>
+    <form (submit)="onSubmit(f)" #f='ngForm'>
+      
+      <label for="title">Title</label>
+      <input type="text" [value]="product.title" name="title" required minlength="3" [(ngModel)]="product.title" #title='ngModel' />
+      <div class="errors" *ngIf="title.invalid && (title.dirty || title.touched)">
+        <div class="errors" *ngIf="title?.errors.required">Product title is required.</div>
+        <div class="errors" *ngIf="title?.errors.minlength">Product title should be at least 3 characters long.</div>
+      </div>    
+      <br>
+  
+      <label for="price">Price</label>
+      <input type="number" [value]="product.price" name="price" min="0.01" step="any" required [(ngModel)]="product.price" #price='ngModel' />
+      <div class="errors" *ngIf="price.invalid && (price.dirty || price.touched)">
+        <div class="errors" *ngIf="price?.errors.required">Price is required.</div>
+      </div>
+      <br>
+  
+      <label for="image">Image URL</label>
+      <input type="text" [value]="product.url" name="image" [(ngModel)]="product.url" />
+      <br>
+
+      <input type="hidden" name="index" [value]="index">
+      <button type="submit" [disabled]="f.invalid">Update</button>
+    </form>
+    <button (click)="delete(index)">Delete</button>
+  
+  </div>
